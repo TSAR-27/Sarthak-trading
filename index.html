@@ -448,7 +448,7 @@
     <div class="about-copy reveal">
       <span class="eyebrow dark">Our Story</span>
       <h2 style="margin:18px 0 26px; font-size:clamp(28px,3.4vw,42px);">Built on one counter in Sheragada. Trading well beyond it.</h2>
-      <p class="lede">Sarthak Trading started as a single chocolate shop on Padhi Street — and stayed exact about one thing: never let quality slip, no matter the order size.</p>
+      <p class="lede">Sarthak Trading started as a single chocolate shop on Padhy Street — and stayed exact about one thing: never let quality slip, no matter the order size.</p>
       <p>That reputation is the reason retailers now come to us for their stock, not just customers for their sweets. We hold a tight range of milk chocolate, confectionery and festive gifting lines, and we buy them the same careful way we always have — checked for freshness, checked for finish, before a single case leaves the counter.</p>
       <p>We keep the business small enough to answer the phone ourselves and large enough to fill a genuine bulk order on schedule. For a shop owner in Sheragada or a buyer further out in Odisha, that combination is the whole pitch.</p>
     </div>
@@ -554,7 +554,7 @@
       <div class="process-item">
         <span class="pnum">01</span>
         <h3>Enquiry</h3>
-        <p>Tell us what you sell and the volume you're moving — by phone, form or in person at the counter on Padhi Street.</p>
+        <p>Tell us what you sell and the volume you're moving — by phone, form or in person at the counter on Padhy Street.</p>
       </div>
       <div class="process-item">
         <span class="pnum">02</span>
@@ -615,7 +615,7 @@
 
       <div class="info-row">
         <span class="k">Address</span>
-        <span class="v">Padhi Street, Sheragada, Odisha 761106, India</span>
+        <span class="v">Padhy Street, Sheragada, Odisha 761106, India</span>
       </div>
       <div class="info-row">
         <span class="k">Phone</span>
@@ -635,15 +635,15 @@
       </div>
     </div>
 
-    <form class="form-card reveal" onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='Request Sent';">
+    <form class="form-card reveal" id="waForm" onsubmit="return sendToWhatsApp(event)">
       <h3>Request wholesale pricing</h3>
-      <span class="sub">Or call/WhatsApp +91 63719 98235 directly</span>
+      <span class="sub">Sent straight to WhatsApp — no waiting for a reply email</span>
       <div class="field">
         <label for="name">Business name</label>
         <input id="name" type="text" placeholder="Your shop or company" required>
       </div>
       <div class="field">
-        <label for="phone">Phone / WhatsApp</label>
+        <label for="phone">Your phone / WhatsApp</label>
         <input id="phone" type="tel" placeholder="+91" required>
       </div>
       <div class="field">
@@ -659,10 +659,32 @@
         <label for="msg">Order details</label>
         <textarea id="msg" placeholder="Approximate quantity, delivery area, and timeline"></textarea>
       </div>
-      <button type="submit" class="btn btn-gold">Send Request</button>
+      <button type="submit" class="btn btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.486 2 2.004 6.482 2.004 12c0 1.87.51 3.635 1.406 5.163L2 22l4.937-1.376A9.958 9.958 0 0 0 12.004 22C17.522 22 22 17.518 22 12S17.522 2 12.004 2zm0 18.153a8.1 8.1 0 0 1-4.13-1.13l-.296-.176-3.02.842.828-3.017-.192-.31A8.1 8.1 0 1 1 20.1 12a8.108 8.108 0 0 1-8.096 8.153z"/></svg>
+        Send via WhatsApp
+      </button>
     </form>
   </div>
 </section>
+
+<script>
+  function sendToWhatsApp(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const range = document.getElementById('range').value;
+    const msg = document.getElementById('msg').value.trim();
+
+    let text = `Hello Sarthak Trading, I'd like a wholesale quote.%0A%0A`;
+    text += `*Business:* ${encodeURIComponent(name)}%0A`;
+    text += `*My contact:* ${encodeURIComponent(phone)}%0A`;
+    text += `*Product interest:* ${encodeURIComponent(range)}%0A`;
+    if(msg){ text += `*Order details:* ${encodeURIComponent(msg)}%0A`; }
+
+    window.open(`https://wa.me/916371998235?text=${text}`, '_blank');
+    return false;
+  }
+</script>
 
 <footer>
   <div class="wrap">
@@ -691,7 +713,7 @@
         </div>
         <div class="foot-col">
           <h4>Visit</h4>
-          <span style="display:block;margin-bottom:10px;font-size:13.5px;">Padhi Street, Sheragada</span>
+          <span style="display:block;margin-bottom:10px;font-size:13.5px;">Padhy Street, Sheragada</span>
           <span style="display:block;margin-bottom:10px;font-size:13.5px;">Odisha 761106, India</span>
           <a href="tel:+916371998235">+91 63719 98235</a>
           <a href="mailto:tskpatro1@gmail.com">tskpatro1@gmail.com</a>
