@@ -126,6 +126,14 @@
     position:relative;
   }
   .nav-links a:hover{opacity:1; color:var(--gold-soft);}
+  .nav-icon{
+    width:14px; height:14px;
+    vertical-align:-2px;
+    margin: 0 1px;
+    color: var(--gold);
+    transition: color .2s;
+  }
+  .nav-links a:hover .nav-icon{ color: var(--gold-soft); }
   .nav-cta{display:flex; align-items:center; gap:22px;}
   .nav-toggle{display:none; background:none;border:none; color:var(--cream); font-size:22px; cursor:pointer;}
 
@@ -133,11 +141,21 @@
     .nav-links{
       position:fixed; top:78px; left:0; right:0; background:var(--cacao);
       flex-direction:column; align-items:flex-start; gap:0;
-      border-bottom:1px solid var(--line-dark);
-      max-height:0; overflow:hidden; transition:max-height .35s ease;
+      max-height:0; overflow-y:auto; transition:max-height .35s ease;
+      padding: 0 32px;
     }
-    .nav-links.open{max-height:400px;}
-    .nav-links a{ padding:16px 32px; width:100%; border-bottom:1px solid var(--line-dark);}
+    .nav-links.open{max-height:calc(100vh - 78px); padding: 36px 32px;}
+    .nav-links a{
+      padding: 16px 0;
+      width:100%;
+      font-family: var(--body);
+      font-size: 19px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: normal;
+      opacity: 1;
+    }
+    .nav-links a:hover, .nav-links a:active{color: var(--gold-soft);}
     .nav-cta .btn-gold{display:none;}
     .nav-toggle{display:block;}
   }
@@ -395,12 +413,12 @@
       </div>
     </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">Overview</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">• Overview...</a></li>
+      <li><a href="#products">• Products <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M3 7l3-3h12l3 3"/><line x1="8" y1="11" x2="8" y2="19"/><line x1="12" y1="11" x2="12" y2="19"/><line x1="16" y1="11" x2="16" y2="19"/></svg><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4l1.5 2h9L18 4"/><path d="M6 4c-1 3-1 12 1 16h10c2-4 2-13 1-16"/><line x1="9" y1="11" x2="15" y2="11"/></svg></a></li>
+      <li><a href="#why">• Why Us?</a></li>
+      <li><a href="#process">• Process <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1h-.2a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1A2 2 0 1 1 6.9 2.7l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V1.4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V7a1.7 1.7 0 0 0 1.6 1h.2a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1z"/></svg></a></li>
+      <li><a href="#reviews">• Reviews ★★★★★</a></li>
+      <li><a href="#contact">• Contact <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.6 10.8c1.3 2.6 3.4 4.7 6 6l2-2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.9c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2 2z"/></svg><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg></a></li>
     </ul>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-gold">Request Catalogue</a>
